@@ -16,6 +16,10 @@ app.use(morgan('dev'));
 
 app.use('/auth', require('./routes/jwtAuth'));
 
+// dashboard route
+
+app.use('/dashboard', require('./routes/dashboard'));
+
 const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

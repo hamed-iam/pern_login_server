@@ -9,13 +9,13 @@ module.exports = async (req, res, next) => {
       return res.status(403).json('Not Authorized');
     }
 
-    const payload = jwt.verify(jwtToken, process.env.JWTSECERT);
+    const payload = jwt.verify(jwtToken, process.env.JWTSECRET);
 
     req.user = payload.user;
 
     next();
   } catch (err) {
     console.error(err.message);
-    res.status(500).json('Not Authorized');
+    res.status(500).json('Token Is Not Valid');
   }
 };
